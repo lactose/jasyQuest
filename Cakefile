@@ -16,9 +16,8 @@ task 'build', 'compile the source files into javascript', ->
   for target, files of output
     mapped = files.map (file) ->
       file = "#{config.source}/#{file}.coffee"
-    console.log mapped
+      exec "coffee -co #{config.compiled} #{config.source}"
 
     file = "#{config.deploy}/#{target}.js"
 
     exec "coffee -j #{file} -cb #{(mapped.join ' ')}"
-    console.log "coffee -j #{file} -cb #{(mapped.join ' ')}"
