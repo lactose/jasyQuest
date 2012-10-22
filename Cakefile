@@ -12,11 +12,14 @@ output =
     'Canvas'
   ]
 
+task 'compile', 'compile the source files into javascript', ->
+  exec "coffee -co #{config.compiled} #{config.source}"
+
 task 'build', 'compile the source files into javascript', ->
+  invoke 'compile'
   for target, files of output
     mapped = files.map (file) ->
       file = "#{config.source}/#{file}.coffee"
-      exec "coffee -co #{config.compiled} #{config.source}"
 
     file = "#{config.deploy}/#{target}.js"
 
