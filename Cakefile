@@ -8,8 +8,11 @@ config =
 
 output = 
   'game': [
-    'base'
     'Canvas'
+    'Particle'
+    'Shape'
+    'Rectangle'
+    'base'
   ]
 
 task 'compile', 'compile the source files into javascript', ->
