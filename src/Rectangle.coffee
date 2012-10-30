@@ -6,7 +6,8 @@ class Rectangle extends Shape
     super point
 
   draw: ->
-    @context.fillRect @loc.x, @loc.y, point.x + @w, point.y + @h
+    @.move @loc
+    @context.fillRect @loc.x, @loc.y, @loc.x + @w, @loc.y + @h
 
   destroy: ->
     @color = 'black'

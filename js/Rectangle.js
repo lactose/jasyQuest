@@ -19,7 +19,8 @@
     };
 
     Rectangle.prototype.draw = function() {
-      return this.context.fillRect(this.loc.x, this.loc.y, point.x + this.w, point.y + this.h);
+      this.move(this.loc);
+      return this.context.fillRect(this.loc.x, this.loc.y, this.loc.x + this.w, this.loc.y + this.h);
     };
 
     Rectangle.prototype.destroy = function() {

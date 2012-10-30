@@ -9,6 +9,7 @@
       this.options = options;
       this.w = this.options.width ? this.options.width : 400;
       this.h = this.options.height ? this.options.height : 400;
+      this.color = this.options.color ? this.options.color : 'black';
       this.canvas = document.createElement("canvas");
       this.canvas.width = this.w;
       this.canvas.height = this.h;
@@ -23,6 +24,23 @@
         $('body').append($(this.canvas));
       }
       return this.ctx = this.canvas.getContext("2d");
+    };
+
+    Canvas.prototype.draw = function() {
+      this.ctx.fillStyle = this.color;
+      return this.ctx.fillRect(0, 0, this.w, this.h);
+    };
+
+    Canvas.prototype.render = function(map) {
+      var l, obj, _i, _len, _results;
+      this.draw();
+      l = map.length;
+      _results = [];
+      for (_i = 0, _len = map.length; _i < _len; _i++) {
+        obj = map[_i];
+        _results.push(obj.draw());
+      }
+      return _results;
     };
 
     Canvas.prototype.dimensions = function() {

@@ -13,3 +13,4 @@ class Shape
   destroy: ->
     delete @
 
+

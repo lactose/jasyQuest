@@ -12,6 +12,7 @@ output =
     'Particle'
     'Shape'
     'Rectangle'
+    'Human'
     'base'
   ]
 
